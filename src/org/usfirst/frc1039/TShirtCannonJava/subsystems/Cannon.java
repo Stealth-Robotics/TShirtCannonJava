@@ -14,7 +14,6 @@ package org.usfirst.frc1039.TShirtCannonJava.subsystems;
 import org.usfirst.frc1039.TShirtCannonJava.RobotMap;
 import org.usfirst.frc1039.TShirtCannonJava.commands.*;
 
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -22,6 +21,7 @@ import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import com.ctre.*;
 
 
 /**

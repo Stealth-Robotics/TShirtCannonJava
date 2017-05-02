@@ -13,9 +13,9 @@ package org.usfirst.frc1039.TShirtCannonJava.subsystems;
 
 import org.usfirst.frc1039.TShirtCannonJava.RobotMap;
 import org.usfirst.frc1039.TShirtCannonJava.commands.*;
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import com.ctre.*;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
