@@ -78,11 +78,11 @@ public class OI {
         shootButton.whenPressed(new Shoot());
         chargeButton = new JoystickButton(utilityJoystick, 8);
         chargeButton.whenPressed(new ChargeTank());
-        pinInButton = new JoystickButton(utilityJoystick, 10);
+        /*pinInButton = new JoystickButton(utilityJoystick, 10);
         pinInButton.whenPressed(new PinIn());
         pinOutButton = new JoystickButton(utilityJoystick, 11);
         pinOutButton.whenPressed(new PinOut());
-        barrelsInButton = new JoystickButton(utilityJoystick, 7);
+        */barrelsInButton = new JoystickButton(utilityJoystick, 7);
         barrelsInButton.whenPressed(new BarrelsIn());
         barrelsOutButton = new JoystickButton(utilityJoystick, 6);
         barrelsOutButton.whenPressed(new BarrelsOut());
