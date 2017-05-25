@@ -60,6 +60,7 @@ public class OI {
     public JoystickButton chargeButton;
     public JoystickButton shootButton;
     public JoystickButton rotateButton;
+    public JoystickButton nextBarrel;
     public JoystickButton automatedFireButton;
     public Joystick utilityJoystick;
 
@@ -72,8 +73,10 @@ public class OI {
         
         automatedFireButton = new JoystickButton(utilityJoystick, 1);
         automatedFireButton.whenPressed(new AutomatedFire());
-        rotateButton = new JoystickButton(utilityJoystick, 5);
-        rotateButton.whenPressed(new RotateUntilLimit());
+        nextBarrel = new JoystickButton(utilityJoystick, 5);
+        nextBarrel.whenPressed(new RotateUntilLimit());
+        rotateButton = new JoystickButton(utilityJoystick, 2);
+        rotateButton.whileHeld(new Rotate());
         shootButton = new JoystickButton(utilityJoystick, 9);
         shootButton.whenPressed(new Shoot());
         chargeButton = new JoystickButton(utilityJoystick, 8);
