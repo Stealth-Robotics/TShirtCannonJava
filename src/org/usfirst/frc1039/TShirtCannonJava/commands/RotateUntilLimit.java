@@ -54,6 +54,7 @@ public class RotateUntilLimit extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.cannon.stopRotate();
+    	Robot.cannon.reachedNextBarrel = false;
     }
 
     // Called when another command which requires one or more of the same
