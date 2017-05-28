@@ -37,6 +37,7 @@ public class ChargeTank extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.cannon.startCharging();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -46,7 +47,7 @@ public class ChargeTank extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return Robot.cannon.isCharged();
     }
 
     // Called once after isFinished returns true

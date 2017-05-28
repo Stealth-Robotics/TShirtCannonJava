@@ -38,17 +38,17 @@ public class BarrelsOut extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.cannon.startBarreling();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("Barrle Out");
-    	Robot.cannon.setBarrel(false);
+    	Robot.cannon.setBarrelOut();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return Robot.cannon.isBarrleDone();
     }
 
     // Called once after isFinished returns true
