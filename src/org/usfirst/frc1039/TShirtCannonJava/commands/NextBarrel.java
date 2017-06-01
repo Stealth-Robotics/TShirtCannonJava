@@ -9,11 +9,7 @@ public class NextBarrel extends CommandGroup {
 
     public NextBarrel() {
         addSequential(new BarrelsOut());
-        //addSequential(new PinIn());
-        //addSequential(new HalfSecondDelay());
-        //addParallel(new DelayPinOut());
         addSequential(new RotateUntilLimit());
         addSequential(new BarrelsIn());
-
     }
 }

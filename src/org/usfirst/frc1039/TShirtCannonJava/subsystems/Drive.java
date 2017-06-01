@@ -52,9 +52,12 @@ public class Drive extends Subsystem {
     }
     
     public void Drive(Joystick driveJoystick){
+    	
     	double y = driveJoystick.getY();
     	double z = driveJoystick.getZ();
     	robotDriveMotors.arcadeDrive(y, z);
+    	
+    	//robotDriveMotors.arcadeDrive(driveJoystick);
     }
 }
 
