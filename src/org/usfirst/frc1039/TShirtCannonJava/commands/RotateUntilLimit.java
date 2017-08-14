@@ -43,14 +43,14 @@ public class RotateUntilLimit extends Command {
     protected void initialize() {
     	System.out.println("RUL init"); 
     	mWatcher.reset();
-    	Robot.cannon.startBarreling();
-    	Robot.cannon.setBarrelOut();
+//    	Robot.cannon.startBarreling();
+//    	Robot.cannon.setBarrelOut();
     	Robot.cannon.setNextBarrel();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(true == Robot.cannon.isBarrleDone())
+    	if(true == Robot.cannon.isBarrelOut())
     	{
     		Robot.cannon.rotate();
     	}

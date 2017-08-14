@@ -21,7 +21,7 @@ public class Rotate extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(false == Robot.cannon.isBarrleIn())
+    	if(true == Robot.cannon.isBarrelOut())
     	{
     		Robot.cannon.rotate();
     	}

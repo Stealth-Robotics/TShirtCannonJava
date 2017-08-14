@@ -41,7 +41,8 @@ public class RobotMap {
     public static Relay cannonChargeSolenoid;
     public static Relay cannonLight;
     public static CANTalon cannonBarrelRotator;
-    public static DigitalInput cannonBarrelInOutlimit;
+    public static DigitalInput cannonBarrelOutlimit;
+    public static DigitalInput cannonBarrelInLimit;
     public static DigitalInput BarrelLocator;
 
     static int kRightMotorA = 1;
@@ -91,8 +92,11 @@ public class RobotMap {
         cannonBarrelRotator = new CANTalon(5);
         LiveWindow.addActuator("Cannon", "BarrelRotator", cannonBarrelRotator);
         
-        cannonBarrelInOutlimit = new DigitalInput(5);
-        LiveWindow.addSensor("Cannon", "Barrellimit", cannonBarrelInOutlimit);
+        cannonBarrelOutlimit = new DigitalInput(5);
+        LiveWindow.addSensor("Cannon", "BarrelOutLimit", cannonBarrelOutlimit);
+        
+        cannonBarrelInLimit = new DigitalInput(6);
+        LiveWindow.addSensor("Cannon", "BarrelInLimit", cannonBarrelInLimit);
         
         BarrelLocator = new DigitalInput(8);
         
