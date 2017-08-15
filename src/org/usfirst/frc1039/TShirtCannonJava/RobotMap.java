@@ -35,6 +35,7 @@ public class RobotMap {
     public static CANTalon driveLeftDrive;
     public static CANTalon driveRightDriveB;
     public static CANTalon driveLeftDriveB;
+    public static Solenoid driveGearShift;
     public static RobotDrive driveRobotDriveMotors;
     public static Solenoid cannonBarrelExtender;
     public static Solenoid cannonShootSolenoid;
@@ -77,10 +78,13 @@ public class RobotMap {
         driveRobotDriveMotors.setSensitivity(0.5);
         driveRobotDriveMotors.setMaxOutput(1.0);
         
-        cannonBarrelExtender = new Solenoid(0, 0);
+        driveGearShift = new Solenoid(4);
+        LiveWindow.addActuator("Drive", "Shifter", driveGearShift);
+        
+        cannonBarrelExtender = new Solenoid(0);
         LiveWindow.addActuator("Cannon", "BarrelExtender", cannonBarrelExtender);
         
-        cannonShootSolenoid = new Solenoid(0, 1);
+        cannonShootSolenoid = new Solenoid(1);
         LiveWindow.addActuator("Cannon", "ShootSolenoid", cannonShootSolenoid);
         
         cannonChargeSolenoid = new Relay(0);

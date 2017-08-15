@@ -12,6 +12,8 @@
 package org.usfirst.frc1039.TShirtCannonJava.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc1039.TShirtCannonJava.Robot;
 
 /**
@@ -42,7 +44,9 @@ public class UserDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.Drive(Robot.oi.getDriveJoystick());
+    	Robot.drive.drive(Robot.oi.getDriveJoystick());
+    	double d = SmartDashboard.getNumber("PressureIn", -1);
+    	SmartDashboard.putNumber("PressureOut", d);
     }
 
     // Make this return true when this Command no longer needs to run execute()
