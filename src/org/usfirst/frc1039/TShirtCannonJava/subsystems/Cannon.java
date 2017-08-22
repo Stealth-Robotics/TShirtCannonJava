@@ -11,11 +11,12 @@
 
 package org.usfirst.frc1039.TShirtCannonJava.subsystems;
 
+import org.usfirst.frc1039.TShirtCannonJava.PressureObject;
 import org.usfirst.frc1039.TShirtCannonJava.RobotMap;
 import org.usfirst.frc1039.TShirtCannonJava.commands.*;
 import org.usfirst.frc1039.TShirtCannonJava.StopWatch;
 
-
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
@@ -44,6 +45,7 @@ public class Cannon extends Subsystem {
     private final DigitalInput barrelOutLimit = RobotMap.cannonBarrelOutlimit;
     private final DigitalInput barrelInLimit = RobotMap.cannonBarrelInLimit;
     private final DigitalInput barrelLocator = RobotMap.BarrelLocator;
+    private final AnalogInput pressureSensor = RobotMap.tankPressure;
 
     public int currentBarrel = -1;
     public int nextBarrel = -1;
@@ -280,34 +282,18 @@ public class Cannon extends Subsystem {
     
     //----------------------------------------------------------------------------
     //  Purpose:
-    //      Do the heaving lifting of the charging
+    //      stop the charging
     //
     //  Notes:
     //      None
     //
     //----------------------------------------------------------------------------    
-    public void charge(){
-		
-		if(chargeWatch.isExpired())
-		{
-	    	System.out.println("Charged");
-    		chargeSolenoid.set(Relay.Value.kOff);
-    		isCharged = true;
-		}
+    public void stopCharge(){
+    	System.out.println("Charged");
+		chargeSolenoid.set(Relay.Value.kOff);
+		isCharged = true;
     }
     
-    //----------------------------------------------------------------------------
-    //  Purpose:
-    //      is the System charged
-    //
-    //  Notes:
-    //      None
-    //
-    //----------------------------------------------------------------------------    
-    public boolean isCharged()
-    {    	
-    	return isCharged;
-    }
         
     //----------------------------------------------------------------------------
     //----------------------------------------------------------------------------
@@ -439,5 +425,17 @@ public class Cannon extends Subsystem {
     public void stopRotate(){
     	barrelRotator.set(0.0);
     }
-
+    
+    //----------------------------------------------------------------------------
+    //  Purpose:
+    //      Read the pressure sensor
+    //
+    //  Notes:
+    //      None
+    //
+    //----------------------------------------------------------------------------    
+    public PressureObject getChargePressure()
+    {
+    	return PressureObject.voltsToPressure(pressureSensor.getVoltage());
+    }
 }
