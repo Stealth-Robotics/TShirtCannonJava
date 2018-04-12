@@ -13,6 +13,8 @@ package org.usfirst.frc1039.TShirtCannonJava.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc1039.TShirtCannonJava.Robot;
 
 /**
@@ -53,6 +55,7 @@ public class BarrelsIn extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	SmartDashboard.putBoolean("charged", true);
     }
 
     // Called when another command which requires one or more of the same

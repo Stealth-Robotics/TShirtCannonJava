@@ -12,6 +12,8 @@
 package org.usfirst.frc1039.TShirtCannonJava.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc1039.TShirtCannonJava.Robot;
 import org.usfirst.frc1039.TShirtCannonJava.StopWatch;;
 
@@ -53,6 +55,7 @@ public class Shoot extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	SmartDashboard.putBoolean("charged", false);
     }
 
     // Called when another command which requires one or more of the same

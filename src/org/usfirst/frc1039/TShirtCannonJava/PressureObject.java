@@ -39,10 +39,29 @@ public class PressureObject {
 	private static final double kVoltSlope = 16.115;
 	private static final double kVoltIntercept = 3.223;
 	
-	public PressureObject(double psi)
+	//pressure to distance: kDistanceSlope * pressure - kDistanceIntercept
+	//distance to pressure: (distance + kDistanceIntercept) / kDistanceSlope
+	private static final double kDistanceSlope = 2.1644;
+	private static final double kDistanceIntercept = 43.5345;
+	
+	public enum ValueType
 	{
-		this.psi = psi;
-		convertPressureToDistance();
+		Pressure, Distance
+	}
+	
+	public PressureObject(double value, ValueType t)
+	{
+		switch(t)
+		{
+		case Pressure:
+			this.psi = value;
+			convertPressureToDistance();
+			break;
+		case Distance:
+			this.dist = value;
+			convertDistanceToPressure();
+			break;
+		}
 	}
 	
 	public static double pressureToVolts(PressureObject psi)
@@ -52,17 +71,17 @@ public class PressureObject {
 	
 	public static PressureObject voltsToPressure(double volts)
 	{
-		return new PressureObject((kVoltSlope * volts) - kVoltIntercept);
+		return new PressureObject((kVoltSlope * volts) - kVoltIntercept, ValueType.Pressure);
 	}
 	
 	private void convertPressureToDistance()
 	{
-		//TODO math here
+		dist = kDistanceSlope * psi - kDistanceIntercept;
 	}
 	
 	private void convertDistanceToPressure()
 	{
-		//TODO more math here
+		psi = (dist + kDistanceIntercept) / kDistanceSlope;
 	}
 	
 	public double getPsi()

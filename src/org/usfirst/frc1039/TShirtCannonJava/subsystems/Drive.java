@@ -74,5 +74,10 @@ public class Drive extends Subsystem {
     		gearShifter.set(!state);
     	}
     }
+    
+    public boolean shiftState()
+    {
+    	return gearShifter.get();
+    }
 }
 

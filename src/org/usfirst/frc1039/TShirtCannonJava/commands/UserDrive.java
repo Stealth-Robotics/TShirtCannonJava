@@ -47,7 +47,10 @@ public class UserDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.drive.drive(Robot.oi.getDriveJoystick());
-    	SmartDashboard.putNumber("PressureOut", Robot.cannon.getChargePressure().getPsi());
+    	PressureObject pressure = Robot.cannon.getChargePressure();
+    	SmartDashboard.putNumber("PressureOut", pressure.getPsi());
+    	SmartDashboard.putNumber("OnboardDistance", pressure.getFt());
+    	SmartDashboard.putBoolean("shifted", Robot.drive.shiftState());
     }
 
     // Make this return true when this Command no longer needs to run execute()
